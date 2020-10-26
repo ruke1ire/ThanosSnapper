@@ -40,8 +40,8 @@ There are 3 implementations, each performing similar tasks but with small differ
 
 ## Terms
 
-- *Independent* : The mode for each channel (RGB) are calculated separately.
-- *Depndent* : The mode for each channel (RGB) are dependent to each other. Therefore the mode of an RGB tuple is calculated.
+- *Independent* : The mode for each channel (RGB) are calculated separately. Therefore the output pixel displays the combination of an RGB tuple found by getting the mode for each of the individual color channels.
+- *Depndent* : The mode for each channel (RGB) are dependent to each other. Therefore the mode of an RGB tuple is calculated for each pixel.
 - *Division* : The number of division to make for each channel. Each channel will resolutions of 256/division. Division = 1 means true color.
 
 ## Discussion
