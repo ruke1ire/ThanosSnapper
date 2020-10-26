@@ -1,6 +1,7 @@
 # ThanosSnapper
 
 ![gif](https://github.com/ruke1ire/ThanosSnapper/blob/main/movie.gif "Thanos Snapper")
+<!-- RGB videos used dependent and all videos used "division" of 10 --> 
 
 This project was created to fulfill my curiosity after a shower thought/hypothesis that:
 
