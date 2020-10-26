@@ -6,7 +6,7 @@ This project was created to fulfill my curiosity after a shower thought/hypothes
 
 > Moving objects from a stationary video can be erased by simply displaying the most frequently occuring pixel value for each pixel, or in other words, displaying the mode of the pixel value for each pixel.
 
-### Usage
+## Usage
 
 There are 3 implementations, each performing similar tasks but with small differences.
 
@@ -34,13 +34,13 @@ There are 3 implementations, each performing similar tasks but with small differ
 - Currently the commands only work for 360,640 resolution videos. 
     - You can change the resolution by tweaking the values in *frameSize*, etc.
 
-### Terms
+## Terms
 
 - *Independent* : The mode for each channel (RGB) are calculated separately.
 - *Depndent* : The mode for each channel (RGB) are dependent to each other.
 - *Division* : The number of division to make for each channel. Each channel will resolutions of 256/division. Division = 1 means true color.
 
-### Discussion
+## Discussion
 
 **Advantages**
 - Easy concept to understand
