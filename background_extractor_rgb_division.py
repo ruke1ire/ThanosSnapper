@@ -4,6 +4,7 @@
 #NO LOOP
 
 #./background_extractor2.py videoplayback2.mp4 processed4.avi 1
+#./background_extractor_rgb_division.py ./resources/videoplayback2.mp4 output.avi 1
 
 import numpy as np
 import cv2
