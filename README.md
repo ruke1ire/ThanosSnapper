@@ -1,7 +1,7 @@
 # ThanosSnapper
 
 ![gif](https://github.com/ruke1ire/ThanosSnapper/blob/main/movie.gif "Thanos Snapper")
-*Independent rgb with division with division = 10 was used for colored videos. Greyscale video also used a division of 10.*
+*"Independent rgb with division (refer to Usage)" with division = 10 was used for colored videos. Greyscale video also used a division of 10.*
 ---
 
 This project was created to fulfill my curiosity after a shower thought/hypothesis that:
