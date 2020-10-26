@@ -1,7 +1,6 @@
 # ThanosSnapper
 
-![gif](https://github.com/ruke1ire/ThanosSnapper/movie.gif "Thanos Snapper")
-
+![gif](https://github.com/ruke1ire/ThanosSnapper/blob/main/movie.gif "Thanos Snapper")
 
 
 
