@@ -11,12 +11,14 @@ This project was created to fulfill my curiosity after a shower thought/hypothes
 There are 3 implementations, each performing similar tasks but with small differences.
 
 1. black and white with division
+    > python3 background_extractor_bw_division.py <input video path/name> <output video path/name> <number of divisions>
 2. independent rgb with division
+    > python3 background_extractor_rgb_division.py <input video path/name> <output video path/name> <number of divisions>
 3. dependent rgb with division
-
-- *Independent* : the mode for each channel(RGB) are calculated separately.
-- *Depndent* : the mode for each channel(RGB) are dependent to each other.
+    > python3 background_extractor_rgb_dependent_division.py <input video path/name> <output video path/name> <number of divisions>
 
 ### Specifics
 
+- *Independent* : The mode for each channel (RGB) are calculated separately.
+- *Depndent* : The mode for each channel (RGB) are dependent to each other.
 
