@@ -3,7 +3,7 @@
 #BW
 #NO LOOP
 
-#./background_extractor5.py videoplayback2.mp4 processed7.avi 1
+#./background_extractor_bw_division.py resources/videoplayback2.mp4 output.avi 1
 
 import numpy as np
 import cv2
@@ -19,19 +19,25 @@ try:
 except:
     raise ValueError("Invalid Input/Output file names")
 
-#np.set_printoptions(threshold=sys.maxsize)
 cap = cv2.VideoCapture(input_str)
 
-frameSize = (640,720)
+inputSize = (360,640)
+frameSize = (inputSize[1],inputSize[0]*2)
 out = cv2.VideoWriter(output_str,cv2.VideoWriter_fourcc(*'DIVX'),24.0,frameSize)
 
 depth = int(256/division) + (256 % division != 0)
-print(depth**3,"Colors")
+print(depth,"Colors")
 
-maximum = np.zeros((360,640,depth)).astype(np.uint8)
+maximum = np.zeros((inputSize[0],inputSize[1],depth)).astype(np.uint8)
 
-output_frame = np.zeros((720,640,3),dtype=np.uint8)
+output_frame = np.zeros((frameSize[1],frameSize[0],3),dtype=np.uint8)
 frame_no = 0
+
+x_range = np.arange(inputSize[0])
+y_range = np.arange(inputSize[1])
+xx, yy = np.meshgrid(x_range,y_range)
+xx = xx.flatten()
+yy = yy.flatten()
 
 while(cap.isOpened()):
     ret, frame = cap.read()
@@ -40,19 +46,13 @@ while(cap.isOpened()):
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    x_range = np.arange(frame.shape[0])
-    y_range = np.arange(frame.shape[1])
-    xx, yy = np.meshgrid(x_range,y_range)
-    xx = xx.flatten()
-    yy = yy.flatten()
-
     maximum[xx,yy,(gray[:,:].T.flatten()/division).astype(int)] += 1
 
-    output_frame[:360,:640,0] = (division*np.argmax(maximum,axis=2)).astype(np.uint8)
-    output_frame[:360,:640,1] = (division*np.argmax(maximum,axis=2)).astype(np.uint8)
-    output_frame[:360,:640,2] = (division*np.argmax(maximum,axis=2)).astype(np.uint8)
+    output_frame[:inputSize[0],:inputSize[1],0] = (division*np.argmax(maximum,axis=2)).astype(np.uint8)
+    output_frame[:inputSize[0],:inputSize[1],1] = (division*np.argmax(maximum,axis=2)).astype(np.uint8)
+    output_frame[:inputSize[0],:inputSize[1],2] = (division*np.argmax(maximum,axis=2)).astype(np.uint8)
 
-    output_frame[360:,:640,:] = frame
+    output_frame[inputSize[0]:,:inputSize[1],:] = frame
 
     out.write(output_frame.astype(np.uint8))
 
