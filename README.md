@@ -31,8 +31,8 @@ There are 3 implementations, each performing similar tasks but with small differ
     ~~~
 
 **Dependencies**
-- numpy
-- opencv2
+- numpy 4.2.0
+- opencv2 1.19.1
 
 **NOTES**
 - Currently the commands only work for 360,640 resolution videos. 
