@@ -8,18 +8,33 @@
 import numpy as np
 import cv2
 import sys
+from os import path
 
 try:
     input_str = str(sys.argv[1])
-    output_str = str(sys.argv[2])
-    try:
-        division = int(sys.argv[3])
-    except:
-        division = 1
 except:
-    raise ValueError("Invalid Input/Output file names")
+    raise ValueError("Input file not specified")
 
-cap = cv2.VideoCapture(input_str)
+if((path.exists(input_str))):
+    print(f"Loading {input_str}")
+    cap = cv2.VideoCapture(input_str)
+else:
+    raise ValueError("Input file does not exist")
+
+try:
+    output_str = str(sys.argv[2])
+except:
+    raise ValueError("Output filename not specified")
+
+if((path.isfile(output_str))):
+    print(f"Saving to {output_str}")
+else:
+    raise ValueError("Not a valid output filename")
+
+try:
+    division = int(sys.argv[3])
+except:
+    division = 1
 
 inputSize = (360,640)
 frameSize = (inputSize[1],inputSize[0]*2)
