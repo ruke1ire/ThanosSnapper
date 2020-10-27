@@ -15,7 +15,7 @@ try:
 except:
     raise ValueError("Input file not specified")
 
-if((path.exists(input_str))):
+if((path.isfile(input_str))):
     print(f"Loading {input_str}")
     cap = cv2.VideoCapture(input_str)
 else:
@@ -25,11 +25,6 @@ try:
     output_str = str(sys.argv[2])
 except:
     raise ValueError("Output filename not specified")
-
-if((path.isfile(output_str))):
-    print(f"Saving to {output_str}")
-else:
-    raise ValueError("Not a valid output filename")
 
 try:
     division = int(sys.argv[3])
